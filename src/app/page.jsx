@@ -40,7 +40,7 @@ export default function ProposalSite() {
 
       {/* 🎶 Background Music */}
       <audio ref={audioRef} autoPlay loop muted={isMuted}>
-        <source src="/audio/jane-na-tu.mp3" type="audio/mpeg" />
+        <source src="/audio/jane.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
 
