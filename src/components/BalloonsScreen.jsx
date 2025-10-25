@@ -75,7 +75,7 @@ export default function BalloonsScreen({ onNext }) {
         transition={{ delay: 0.5, duration: 1 }}
       >
         <h1 className="text-3xl md:text-4xl text-pink-200 leading-tight font-semibold">
-          This is what I want to say for <span className="text-pink-400 font-bold">so long...</span>
+          This is what I want to say for <span className="text-pink-400 font-bold">Abru❤️...</span>
         </h1>
         <motion.p
           className="text-pink-300/80 text-lg mt-4 italic"
@@ -111,7 +111,7 @@ export default function BalloonsScreen({ onNext }) {
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          There's more I want to show you...
+          Aur hai abee dhek...
         </motion.p>
 
         <motion.button
