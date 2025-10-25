@@ -12,8 +12,8 @@ import CuteLoader from "@/components/CuteLoader";
 export default function ProposalSite() {
   const [currentScreen, setCurrentScreen] = useState("loader");
   const [isLoading, setIsLoading] = useState(true);
-  const [isMuted, setIsMuted] = useState(true); // 🔇 toggle state
-  const audioRef = useRef(null); // 🎵 reference to audio element
+  const [isMuted, setIsMuted] = useState(true);
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,6 +22,20 @@ export default function ProposalSite() {
     }, 3000);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      const handleEnded = () => {
+        audio.currentTime = 0;
+        audio.play();
+      };
+      audio.addEventListener("ended", handleEnded);
+      return () => {
+        audio.removeEventListener("ended", handleEnded);
+      };
+    }
   }, []);
 
   const nextScreen = (screen) => {
@@ -39,7 +53,7 @@ export default function ProposalSite() {
     <div className="min-h-screen bg-gradient-to-br from-fuchsia-950/30 via-black/70 to-rose-950/40 relative overflow-hidden">
 
       {/* 🎶 Background Music */}
-      <audio ref={audioRef} autoPlay loop muted={isMuted}>
+      <audio ref={audioRef} autoPlay muted={isMuted}>
         <source src="/audio/jane.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
@@ -69,7 +83,7 @@ export default function ProposalSite() {
         {currentScreen === "question2" && (
           <QuestionScreen
             key="question2"
-            question="Do you like me?"
+            question="Do you like me Abru?"
             onYes={() => nextScreen("balloons")}
             isFirst={false}
           />
