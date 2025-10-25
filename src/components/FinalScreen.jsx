@@ -13,17 +13,17 @@ export default function FinalScreen() {
   const messageRef = useRef(null)
 
   const proposalMessage = `Jab se Mai terku dhekun jab se one side love karun.  
-You brought colors to my ordinary days, warmth to my silence, and a happiness I didn’t even know I was missing.  
+Jab se tu intrest nahi boli jabse merku samajh aya nai ki mai kya karna bolun so.
 
-Every sunrise feels brighter because of you.  
-Every dream feels possible because you inspire me.  
-Every challenge feels easier because I imagine you by my side.  
+Kab intrest nahi love may bolin ki jab se apko distrub nai karna bolun.  
+But tume fir merse ako baat kare tak mere dil may feelings fir return ayin 😘.  
+Aap ke vaste wait kartun kete bhe din but wait nai karv sakta aapko nai dheke jaisaa.  
 
-You are not just my friend, you’re the most special part of my life.  
-You make me smile, you make my heart race, and you make me want to be a better version of myself.  
+Aap ke Ankho may dhekun oo mere dil ko kya hota hai samajh ata nahi.  
+Aap se baat karna bolko kete ki din se wait karun,but oo merse huva nai.  
 
-I don’t know what the future holds, but I know one thing for sure.
-I want that future with you.`
+Aap ko mai serious se karnse kya ki mai aap se baat karte waqt shiver huvasoo.
+Aap se mera futuer hona boletu hu.`
 
   useEffect(() => {
     if (cardOpen && !typingComplete) {
