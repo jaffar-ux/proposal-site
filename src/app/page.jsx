@@ -1,39 +1,56 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "motion/react"
-import FirstScreen from "@/components/FirstScreen"
-import QuestionScreen from "@/components/QuestionScreen"
-import BalloonsScreen from "@/components/BalloonsScreen"
-import PhotoScreen from "@/components/PhotoScreen"
-import FinalScreen from "@/components/FinalScreen"
-import CuteLoader from "@/components/CuteLoader"
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import FirstScreen from "@/components/FirstScreen";
+import QuestionScreen from "@/components/QuestionScreen";
+import BalloonsScreen from "@/components/BalloonsScreen";
+import PhotoScreen from "@/components/PhotoScreen";
+import FinalScreen from "@/components/FinalScreen";
+import CuteLoader from "@/components/CuteLoader";
 
 export default function ProposalSite() {
-  const [currentScreen, setCurrentScreen] = useState("loader")
-  const [isLoading, setIsLoading] = useState(true)
+  const [currentScreen, setCurrentScreen] = useState("loader");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMuted, setIsMuted] = useState(true); // 🔇 toggle state
+  const audioRef = useRef(null); // 🎵 reference to audio element
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false)
-      setCurrentScreen("first")
-    }, 3000)
+      setIsLoading(false);
+      setCurrentScreen("first");
+    }, 3000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   const nextScreen = (screen) => {
-    setCurrentScreen(screen)
-  }
+    setCurrentScreen(screen);
+  };
+
+  const toggleMute = () => {
+    setIsMuted((prev) => !prev);
+    if (audioRef.current) {
+      audioRef.current.muted = !audioRef.current.muted;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-fuchsia-950/30 via-black/70 to-rose-950/40 relative overflow-hidden">
 
       {/* 🎶 Background Music */}
-      <audio autoPlay loop>
+      <audio ref={audioRef} autoPlay loop muted={isMuted}>
         <source src="/audio/jane-na-tu.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
+
+      {/* 🔘 Toggle Button */}
+      <button
+        onClick={toggleMute}
+        className="fixed top-4 right-4 z-50 bg-white/10 text-white px-3 py-1 rounded-full text-sm hover:bg-white/20 transition"
+      >
+        {isMuted ? "🔇 Music Off" : "🔊 Music On"}
+      </button>
 
       <AnimatePresence mode="wait">
         {isLoading && <CuteLoader key="loader" onComplete={() => setCurrentScreen("first")} />}
@@ -59,9 +76,7 @@ export default function ProposalSite() {
         )}
 
         {currentScreen === "balloons" && <BalloonsScreen key="balloons" onNext={() => nextScreen("photos")} />}
-
         {currentScreen === "photos" && <PhotoScreen key="photos" onNext={() => nextScreen("final")} />}
-
         {currentScreen === "final" && <FinalScreen key="final" />}
       </AnimatePresence>
 
@@ -69,13 +84,11 @@ export default function ProposalSite() {
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{
-          duration: 1,
-          delay: 1,
-        }}
-        className="fixed bottom-4 right-4 text-[13px] text-white/40 pointer-events-none z-50 font-light">
+        transition={{ duration: 1, delay: 1 }}
+        className="fixed bottom-4 right-4 text-[13px] text-white/40 pointer-events-none z-50 font-light"
+      >
         @jaffar proposal
       </motion.div>
     </div>
-  )
+  );
 }
