@@ -59,7 +59,7 @@ export default function PhotoScreen({ onNext }) {
                 transition={{ delay: 0.3, duration: 1 }}
             >
                 <h1 className="text-2xl md:text-3xl text-pink-200 leading-relaxed mb-4 font-semibold">
-                    From the first day I met you, life became <span className="text-pink-400 font-bold">brighter...</span>
+                    From the first day I met you, life became <span className="text-pink-400 font-bold">brighter Abru...</span>
                 </h1>
 
                 <motion.p
@@ -68,7 +68,7 @@ export default function PhotoScreen({ onNext }) {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1 }}
                 >
-                    You've made every moment so special 💕
+                    First baat Karekot see
                 </motion.p>
             </motion.div>
 
@@ -127,7 +127,7 @@ export default function PhotoScreen({ onNext }) {
                     animate={{ opacity: [0.6, 1, 0.6] }}
                     transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 >
-                    Now for the most important part...
+                   Abb most important part Dhek Abru...
                 </motion.p>
 
                 <button
@@ -135,7 +135,7 @@ export default function PhotoScreen({ onNext }) {
                     className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center mx-auto pointer-events-auto"
                 >
                     <Heart className="w-5 h-5 mr-2 fill-current heartbeat-animation" />
-                    See the Message
+                    Clcik kar Abru
                     <ArrowRight className="w-5 h-5 ml-2" />
                 </button>
             </motion.div>
