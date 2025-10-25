@@ -12,7 +12,7 @@ export default function FinalScreen() {
   const [showOverlay, setShowOverlay] = useState(false)
   const messageRef = useRef(null)
 
-  const proposalMessage = `From the moment you came into my life, everything started to change.  
+  const proposalMessage = `Jab se Mai terku dhekun jab se one side love karun.  
 You brought colors to my ordinary days, warmth to my silence, and a happiness I didn’t even know I was missing.  
 
 Every sunrise feels brighter because of you.  
