@@ -6,7 +6,7 @@ import { ArrowRight, Heart } from "lucide-react"
 
 export default function BalloonsScreen({ onNext }) {
 
-  const balloons = [{ text: "I", color: "fill-pink-500/50" }, { text: "Love", color: "fill-rose-500/50" }, { text: "You", color: "fill-purple-500/50" }]
+  const balloons = [{ text: "I", color: "fill-pink-500/50" }, { text: "Love", color: "fill-rose-500/50" }, { text: "Abru", color: "fill-purple-500/50" }]
 
   const BalloonComponent = ({ balloon }) => (
     <motion.div
@@ -83,7 +83,7 @@ export default function BalloonsScreen({ onNext }) {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          Watch the balloons carry my message to you
+         Ballon Ko dhek seeda accha Mera Msg
         </motion.p>
       </motion.div>
 
