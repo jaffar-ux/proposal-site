@@ -49,7 +49,7 @@ export default function FirstScreen({ onNext }) {
                     <span className="font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
                         special
                     </span>{" "}
-                    to tell you...
+                    to tell you Abru❤️...
                 </motion.h1>
 
                 {/* Subtitle */}
@@ -72,7 +72,7 @@ export default function FirstScreen({ onNext }) {
                         className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full pulse-glow transition-all duration-300 hover:scale-105 shadow-lg flex items-center justify-center mx-auto"
                     >
                         <Heart className="w-5 h-5 mr-2" />
-                        Tap to Begin
+                        Tap kar Abru
                     </button>
                 </motion.div>
             </div>
