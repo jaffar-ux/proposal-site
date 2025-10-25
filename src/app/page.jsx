@@ -1,5 +1,5 @@
 "use client"
-  
+
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import FirstScreen from "@/components/FirstScreen"
@@ -28,6 +28,12 @@ export default function ProposalSite() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-fuchsia-950/30 via-black/70 to-rose-950/40 relative overflow-hidden">
+
+      {/* 🎶 Background Music */}
+      <audio autoPlay loop>
+        <source src="public/audio/jane na tu.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
 
       <AnimatePresence mode="wait">
         {isLoading && <CuteLoader key="loader" onComplete={() => setCurrentScreen("first")} />}
