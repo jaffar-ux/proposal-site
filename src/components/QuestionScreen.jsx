@@ -95,7 +95,7 @@ export default function QuestionScreen({ question, onYes, isFirst }) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9, duration: 0.8 }}
                 >
-                    {isFirst ? "I promise it's worth it..." : "Be honest with me..."}
+                    {isFirst ? "I promise it's worth it..." : "Abb merkun like karte..."}
                 </motion.p>
 
                 {/* Answer buttons */}
