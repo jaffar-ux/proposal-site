@@ -24,6 +24,7 @@ export default function ProposalSite() {
     return () => clearTimeout(timer);
   }, []);
 
+  // 🔁 Force loop fallback
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
@@ -36,6 +37,24 @@ export default function ProposalSite() {
         audio.removeEventListener("ended", handleEnded);
       };
     }
+  }, []);
+
+  // 🔊 Unmute on first click anywhere
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      if (audioRef.current) {
+        audioRef.current.muted = false;
+        audioRef.current.play();
+        setIsMuted(false);
+      }
+      window.removeEventListener("click", handleUserInteraction);
+    };
+
+    window.addEventListener("click", handleUserInteraction);
+
+    return () => {
+      window.removeEventListener("click", handleUserInteraction);
+    };
   }, []);
 
   const nextScreen = (screen) => {
@@ -53,7 +72,7 @@ export default function ProposalSite() {
     <div className="min-h-screen bg-gradient-to-br from-fuchsia-950/30 via-black/70 to-rose-950/40 relative overflow-hidden">
 
       {/* 🎶 Background Music */}
-      <audio ref={audioRef} autoPlay muted={isMuted}>
+      <audio ref={audioRef} autoPlay muted>
         <source src="/audio/jane.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
@@ -83,7 +102,7 @@ export default function ProposalSite() {
         {currentScreen === "question2" && (
           <QuestionScreen
             key="question2"
-            question="Do you like me Abru?"
+            question="Do you like me?"
             onYes={() => nextScreen("balloons")}
             isFirst={false}
           />
